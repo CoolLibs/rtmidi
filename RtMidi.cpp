@@ -2809,10 +2809,10 @@ void MidiInWinMM :: initialize( const std::string& /*clientName*/ )
   // We'll issue a warning here if no devices are available but not
   // throw an error since the user can plugin something later.
   unsigned int nDevices = midiInGetNumDevs();
-  if ( nDevices == 0 ) {
-    errorString_ = "MidiInWinMM::initialize: no MIDI input devices currently available.";
-    error( RtMidiError::WARNING, errorString_ );
-  }
+//   if ( nDevices == 0 ) {
+//     errorString_ = "MidiInWinMM::initialize: no MIDI input devices currently available.";
+//     error( RtMidiError::WARNING, errorString_ );
+//   }
 
   // Save our api-specific connection information.
   WinMidiData *data = (WinMidiData *) new WinMidiData;
@@ -3714,11 +3714,11 @@ void MidiInWinUWP::initialize(const std::string& /*clientName*/)
     // We'll issue a warning here if no devices are available but not
     // throw an error since the user can plugin something later.
     const auto nDevices{ data->get_num_ports() };
-    if (nDevices == 0)
-    {
-        errorString_ = "MidiInWinUWP::initialize: no MIDI input devices currently available.";
-        error(RtMidiError::WARNING, errorString_);
-    }
+    // if (nDevices == 0)
+    // {
+    //     errorString_ = "MidiInWinUWP::initialize: no MIDI input devices currently available.";
+    //     error(RtMidiError::WARNING, errorString_);
+    // }
 }
 
 void MidiInWinUWP::openPort(unsigned int portNumber, const std::string&/*portName*/)
